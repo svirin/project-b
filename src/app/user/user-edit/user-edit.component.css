@@ -1,0 +1,23 @@
+input.ng-invalid.ng-touched {
+  border: solid #ff0000 1px;
+}
+
+.vertical-central {
+  margin-top: 10px;
+}
+
+input.ng-invalid.ng-touched {
+  border: solid #ff0000 1px;
+}
+
+textarea.ng-invalid.ng-touched {
+  border: solid #ff0000 1px;
+}
+
+img.img-responsive{
+  max-height: 30px;
+}
+
+.title-form {
+  font-size:large;
+}

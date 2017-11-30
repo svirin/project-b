@@ -1,0 +1,10 @@
+.small_image {
+  max-width: 130px;
+  border: double 3px #999999;
+}
+
+.main_image {
+  max-height: 396px;
+  max-width: 396px;
+  border: double 3px #999999;
+}

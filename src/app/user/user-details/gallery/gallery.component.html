@@ -1,0 +1,14 @@
+<div class="col-md-12">
+  <div class="col-md-12">
+    <img [src]="mainImage.url"
+         [alt]="mainImage.name"
+         class="main_image"/>
+  </div>
+  <div class="col-md-4" *ngFor="let img of images">
+    <img [src]="img.url"
+          alt="img.name"
+          class="small_image"
+          style="cursor: pointer;"
+          (click)="selectImage(img)" />
+  </div>
+</div>

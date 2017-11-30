@@ -1,0 +1,136 @@
+<div class="row">
+  <div class="col-xs-10 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="form-group col-xs-12">
+            <div class="col-xs-10 vertical-central">
+              <label class="title-form">Edit user form</label>
+            </div>
+          </div>
+          <div class="form-group col-xs-12">
+            <div class="col-xs-4 vertical-central">
+              <label for="email">Email</label>
+            </div>
+            <div class="col-md-8">
+              <input type="text"
+                     id="email"
+                     formControlName="email"
+                     [readonly]="true"
+                     class="form-control">
+            </div>
+          </div>
+          <div class="form-group col-xs-12">
+            <div class="col-xs-4 vertical-central">
+              <label for="firstName">First name</label>
+            </div>
+            <div class="col-md-8">
+              <input type="text"
+                     id="firstName"
+                     formControlName="firstName"
+                     class="form-control">
+            </div>
+          </div>
+          <div class="form-group col-xs-12">
+            <div class="col-xs-4 vertical-central">
+              <label for="lastName">Last name</label>
+            </div>
+            <div class="col-md-8">
+              <input type="text"
+                     id="lastName"
+                     formControlName="lastName"
+                     class="form-control">
+            </div>
+          </div>
+          <div class="form-group col-xs-12">
+            <div class="col-xs-4 vertical-central">
+              <label for="description">Description</label>
+            </div>
+            <div class="col-md-8">
+              <textarea type="text"
+                        id="description"
+                        class="form-control"
+                        formControlName="description"
+                        rows="3"></textarea>
+            </div>
+          </div>
+          <div class="form-group  col-xs-12">
+            <hr />
+          </div>
+          <div class="form-group col-xs-12" formArrayName="images">
+            <div class="row">
+              <div class="col-md-3 center-block">
+                Name
+              </div>
+              <div class="col-md-5 center-block">
+                URL
+              </div>
+              <div class="col-md-2">
+                <img src="http://www.freeiconspng.com/uploads/camera-icon--long-shadow-ios7-iconset--pelfusion-30.png"
+                     class="img-responsive">
+              </div>
+              <div class="col-md-1">
+                &nbsp;
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-xs-12" formArrayName="images">
+            <div class="row"
+                  *ngFor="let imageCtrl of getControls(); let i = index"
+                  [formGroupName]="i"
+                  style="margin-top: 5px;">
+
+              <div class="col-md-3">
+                <input type="text"
+                       id="name"
+                       formControlName="name"
+                       class="form-control">
+              </div>
+              <div class="col-md-5">
+                <input type="text"
+                       id="url"
+                       formControlName="url"
+                       class="form-control">
+              </div>
+              <div class="col-xs-2">
+                <img [src]="userForm.get('images').controls[i].value.url"
+                     class="img-responsive">
+              </div>
+              <div class="col-xs-1">
+                <button type="button"
+                        class="btn btn-danger"
+                        (click)="onDeleteImage(i)">
+                  X
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-xs-12">
+            <button type="button"
+                    class="btn btn-success"
+                    (click)="onAddImage()">
+              Add Image
+            </button>
+          </div>
+          <div class="form-group  col-xs-12">
+            <hr />
+          </div>
+          <div class="form-group  col-xs-12">
+            <div class="col-md-10">
+              <button type="submit"
+                      class="btn btn-success"
+                      [disabled]="!userForm.valid">
+                Save
+              </button>
+              <button type="button"
+                      class="btn btn-danger"
+                      (click)="onCancel()">
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+          </div>
+</form>
+  </div>
+</div>
